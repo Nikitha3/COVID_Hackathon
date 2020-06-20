@@ -40,5 +40,20 @@ library(tidyverse)
 file<-read.csv("data.csv",header= TRUE, sep=",")
 file
 
+bool<-file[file$Residue..==19, ]
+
+
+#tdiff = bool$Top_rep1 bool$Bottom_rep1
+
+counts <- table(bool$Top_rep1,bool$Bottom_rep1)
+barplot(counts, main="Spike plot for '19' residue rep1",
+  xlab="Amino number", col=c("darkblue","red"),
+  legend = rownames(counts), beside=TRUE)
+
+#mut=bool$Substitution[which.max(tdiff)]
+
+#print(mut)
+
+
 ```
 
